@@ -3,8 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radha Swami Coal Company</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Radha Swami Coal Company | Quality Coal Suppliers Bilaspur</title>
+    <meta name="description" content="Radha Swami Coal Company - Leading coal trading company in Bilaspur, Chhattisgarh. Suppliers of thermal coal, industrial coal, and coking coal.">
+    <meta name="keywords" content="coal trading, coal suppliers Bilaspur, Radha Swami Coal Company, thermal coal, industrial coal, Chhattisgarh coal dealers">
+    <meta name="author" content="Radha Swami Coal Company">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Radha Swami Coal Company">
+    <meta property="og:description" content="Trusted coal trading company in Bilaspur delivering quality coal for industrial needs.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -33,11 +48,24 @@
             color: var(--text);
             line-height: 1.6;
             background: var(--bg);
+            overflow-x: hidden;
         }
 
         h1, h2, h3 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Navigation */
@@ -49,6 +77,7 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s;
         }
 
         .nav-container {
@@ -61,14 +90,25 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .logo-text {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
-            text-decoration: none;
         }
 
-        .logo span {
+        .logo-text span {
             color: var(--accent);
         }
 
@@ -111,6 +151,7 @@
             flex-direction: column;
             gap: 4px;
             cursor: pointer;
+            z-index: 1001;
         }
 
         .mobile-menu span {
@@ -247,6 +288,8 @@
             color: var(--accent);
             font-size: 5rem;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
         }
 
         .about-content h3 {
@@ -376,6 +419,20 @@
             font-size: 0.95rem;
         }
 
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            height: 250px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         .contact-form {
             background: var(--bg);
             padding: 2.5rem;
@@ -437,6 +494,38 @@
             color: var(--primary);
         }
 
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
         /* Footer */
         footer {
             background: var(--primary);
@@ -479,6 +568,32 @@
             color: var(--accent);
         }
 
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
         .footer-bottom {
             border-top: 1px solid #333;
             margin-top: 2rem;
@@ -490,6 +605,19 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: white;
+                padding: 1rem 2rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
             }
 
             .mobile-menu {
@@ -531,6 +659,14 @@
             .section-header h2 {
                 font-size: 2rem;
             }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
@@ -539,14 +675,17 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">Radha <span>Swami</span></a>
-            <ul class="nav-links">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Radha Swami Coal Company Logo">
+                <span class="logo-text">Radha <span>Swami</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="mobile-menu" onclick="toggleMenu()">
+            <div class="mobile-menu" id="mobileMenu" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -556,7 +695,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
+        <div class="hero-content fade-in">
             <h1>Powering Progress with <span>Quality Coal</span></h1>
             <p>Radha Swami Coal Company has been a trusted name in coal supply and distribution, delivering reliable energy solutions to industries across the nation with integrity and excellence.</p>
             <a href="#contact" class="btn">Get In Touch</a>
@@ -566,16 +705,16 @@
 
     <!-- About Section -->
     <section class="about" id="about">
-        <div class="section-header">
+        <div class="section-header fade-in">
             <h2>About Us</h2>
             <div class="divider"></div>
             <p>Building trust through quality coal supply and exceptional service since our establishment.</p>
         </div>
         <div class="about-grid">
-            <div class="about-image">⛏</div>
-            <div class="about-content">
+            <div class="about-image fade-in">⛏</div>
+            <div class="about-content fade-in">
                 <h3>Your Reliable Partner in Coal Trading</h3>
-                <p>Radha Swami Coal Trading is a leading coal trading company committed to providing high-quality coal products to meet diverse industrial and commercial needs. With years of experience in the coal industry, we have established ourselves as a dependable supplier known for our transparency, fair pricing, and timely delivery.</p>
+                <p>Radha Swami Coal Company is a leading coal trading company committed to providing high-quality coal products to meet diverse industrial and commercial needs. With years of experience in the coal industry, we have established ourselves as a dependable supplier known for our transparency, fair pricing, and timely delivery.</p>
                 <p>We source coal from reputed mines and ensure strict quality control measures to deliver products that meet industry standards. Our dedicated team works closely with clients to understand their specific requirements and provide tailored solutions.</p>
                 <div class="stats">
                     <div class="stat-item">
@@ -597,28 +736,28 @@
 
     <!-- Services Section -->
     <section id="services">
-        <div class="section-header">
+        <div class="section-header fade-in">
             <h2>Our Services</h2>
             <div class="divider"></div>
             <p>Comprehensive coal trading solutions tailored to your energy requirements.</p>
         </div>
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card fade-in">
                 <div class="service-icon">⚡</div>
                 <h3>Thermal Coal Supply</h3>
                 <p>High-grade thermal coal for power generation and industrial heating applications with consistent calorific value.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card fade-in">
                 <div class="service-icon">🏭</div>
                 <h3>Industrial Coal</h3>
                 <p>Specialized coal variants for cement, steel, and manufacturing industries meeting specific process requirements.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card fade-in">
                 <div class="service-icon">🚛</div>
                 <h3>Logistics & Transport</h3>
                 <p>End-to-end logistics solutions ensuring safe and timely delivery of coal to your doorstep across the country.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card fade-in">
                 <div class="service-icon">✓</div>
                 <h3>Quality Testing</h3>
                 <p>Rigorous quality analysis and certification to ensure every batch meets promised specifications and standards.</p>
@@ -628,13 +767,13 @@
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="section-header">
+        <div class="section-header fade-in">
             <h2>Contact Us</h2>
             <div class="divider"></div>
             <p>Reach out to us for quotes, inquiries, or partnership opportunities.</p>
         </div>
         <div class="contact-wrapper">
-            <div class="contact-info">
+            <div class="contact-info fade-in">
                 <h3>Get in Touch</h3>
                 <p>We'd love to hear from you. Whether you have a question about our coal grades, pricing, need a quote, or anything else, our team is ready to answer all your questions.</p>
                 
@@ -666,7 +805,6 @@
                             <h4>Email Address</h4>
                             <p>rscc.coal@gmail.com</p>
                         </div>
-
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">🕐</div>
@@ -676,9 +814,19 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Google Maps Embed for Bilaspur -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3694.1234567890123!2d82.12345678901234!3d22.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDA3JzI0LjQiTiA4MsKwMDcnMjQuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
             
-            <div class="contact-form">
+            <div class="contact-form fade-in">
                 <form onsubmit="event.preventDefault(); alert('Thank you for your message! We will get back to you soon.');">
                     <div class="form-group">
                         <label for="name">Full Name</label>
@@ -713,37 +861,44 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            
+            <div class="social-links">
+                <a href="#" title="Facebook">f</a>
+                <a href="#" title="LinkedIn">in</a>
+                <a href="#" title="Instagram">📷</a>
+            </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2026 Radha Swami Coal Trading. All rights reserved.</p>
+                <p>&copy; 2026 Radha Swami Coal Company. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/918103942420?text=Hello%20Radha%20Swami%20Coal%20Company,%20I%20am%20interested%20in%20your%20coal%20products." 
+       class="whatsapp-float" 
+       target="_blank" 
+       title="Chat on WhatsApp">
+        💬
+    </a>
+
     <script>
         // Mobile menu toggle
         function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '100%';
-            navLinks.style.left = '0';
-            navLinks.style.right = '0';
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.background = 'white';
-            navLinks.style.padding = '1rem 2rem';
-            navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
         }
 
         // Close mobile menu on link click
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
-                    document.querySelector('.nav-links').style.display = 'none';
+                    document.getElementById('navLinks').classList.remove('active');
                 }
             });
         });
 
-        // Navbar background on scroll
+        // Navbar shadow on scroll
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
@@ -751,6 +906,24 @@
             } else {
                 nav.style.boxShadow = 'none';
             }
+        });
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
         });
     </script>
 
